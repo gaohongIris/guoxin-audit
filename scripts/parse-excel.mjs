@@ -265,7 +265,6 @@ const plansWithTree = plans.map((p) => {
     ...p,
     detailCount: planDetails.length,
     detailTree: buildDetailTree(planDetails),
-    details: planDetails,
   };
 });
 

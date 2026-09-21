@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 
 export default defineConfig({
-  base: process.env.GITHUB_PAGES === 'true' ? '/guoxin-audit/' : '/',
+  base: process.env.GITHUB_PAGES === 'true' ? './' : '/',
   plugins: [vue()],
   resolve: {
     alias: {

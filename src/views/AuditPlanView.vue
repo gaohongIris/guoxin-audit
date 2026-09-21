@@ -1,5 +1,7 @@
 <template>
-  <div class="split-3">
+  <div v-if="loading" class="empty-tip" style="padding:48px">正在加载方案数据，请稍候…</div>
+  <div v-else-if="loadError" class="empty-tip" style="padding:48px">{{ loadError }}</div>
+  <div v-else class="split-3">
     <!-- 左：方案分类树（上下级） -->
     <div class="panel">
       <div class="panel-head">
@@ -143,23 +145,47 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { computed, ref, watch, onMounted } from 'vue'
 import { Search } from '@element-plus/icons-vue'
-import plans from '../data/plans.json'
+import plansUrl from '../data/plans.json?url'
 import planCategoryTree from '../data/plan-category-tree.json'
 import FullText from '../components/FullText.vue'
 import DetailBody from '../components/DetailBody.vue'
 
 const planKeyword = ref('')
 const detailKeyword = ref('')
-const richPlan = plans.find((p) => p.basis || p.objective || p.scope) || plans[0]
-const currentPlanId = ref(richPlan?.id || null)
+const plans = ref([])
+const loading = ref(true)
+const loadError = ref('')
+const currentPlanId = ref(null)
 const currentDetail = ref(null)
 const showAllDetails = ref(false)
 const planTreeRef = ref()
 
-const planMap = new Map(plans.map((p) => [p.id, p]))
-const currentPlan = computed(() => planMap.get(currentPlanId.value) || null)
+onMounted(async () => {
+  try {
+    const res = await fetch(plansUrl)
+    if (!res.ok) throw new Error(`方案数据加载失败（${res.status}）`)
+    plans.value = await res.json()
+    const richPlan = plans.value.find((p) => p.basis || p.objective || p.scope) || plans.value[0]
+    currentPlanId.value = richPlan?.id || null
+  } catch (err) {
+    loadError.value = err?.message || '方案数据加载失败，请检查网络后刷新'
+  } finally {
+    loading.value = false
+  }
+})
+
+const planMap = computed(() => new Map(plans.value.map((p) => [p.id, p])))
+const currentPlan = computed(() => planMap.value.get(currentPlanId.value) || null)
+
+function collectDetails(nodes, out = []) {
+  for (const n of nodes || []) {
+    if (n.data) out.push(n.data)
+    if (n.children?.length) collectDetails(n.children, out)
+  }
+  return out
+}
 
 function filterTree(nodes, keyword) {
   if (!keyword) return nodes
@@ -188,8 +214,9 @@ const filteredDetailTree = computed(() => {
 const filteredDetails = computed(() => {
   if (!currentPlan.value) return []
   const kw = detailKeyword.value.trim().toLowerCase()
-  if (!kw) return currentPlan.value.details || []
-  return (currentPlan.value.details || []).filter((d) => {
+  const details = collectDetails(currentPlan.value.detailTree || [])
+  if (!kw) return details
+  return details.filter((d) => {
     const blob = [
       d.matterName,
       d.cat1,

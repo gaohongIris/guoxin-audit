@@ -24,6 +24,10 @@
           <el-icon><PriceTag /></el-icon>
           <span>问题分类</span>
         </el-menu-item>
+        <el-menu-item index="/analysis-models">
+          <el-icon><DataAnalysis /></el-icon>
+          <span>数据分析模型</span>
+        </el-menu-item>
         <el-menu-item index="/knowledge">
           <el-icon><Collection /></el-icon>
           <span>专业知识</span>
@@ -34,6 +38,8 @@
         <div>明细 {{ summary.details }} 条</div>
         <div>事项库 {{ summary.matters }} 项</div>
         <div>问题分类 {{ pcSummary.totalRows }} 条</div>
+        <div>分析模型 {{ amSummary.models }} 个</div>
+        <div>建议关注 {{ amSummary.guoxinModels || 0 }} 个</div>
         <div>知识域 4 个</div>
       </div>
     </el-aside>
@@ -54,6 +60,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import summary from './data/summary.json'
 import pcSummary from './data/problem-category-summary.json'
+import amSummary from './data/analysis-model-summary.json'
 
 const route = useRoute()
 const active = computed(() => route.path)
@@ -61,6 +68,7 @@ const pageTitle = computed(() => route.meta.title || '审计管理')
 const headerHint = computed(() => {
   if (route.path === '/knowledge') return '准则要点 · 知识点 · 审计落地 · 事项对标'
   if (route.path === '/problem-categories') return '国投问题分类台账 · 上下级全量'
+  if (route.path === '/analysis-models') return '建议关注精选 · 业务域分类 · 模型说明 / 公式'
   return '主子表 · 上下级树 · 全文可见'
 })
 </script>

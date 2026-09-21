@@ -1,0 +1,182 @@
+[
+  {
+    "id": "domain-财务指标",
+    "name": "财务指标",
+    "modelCount": 33,
+    "categories": [
+      {
+        "name": "短期偿债能力",
+        "modelCount": 4
+      },
+      {
+        "name": "长期偿债能力",
+        "modelCount": 7
+      },
+      {
+        "name": "盈利能力状况",
+        "modelCount": 15
+      },
+      {
+        "name": "经营增长状况",
+        "modelCount": 7
+      }
+    ]
+  },
+  {
+    "id": "domain-资金管理",
+    "name": "资金管理",
+    "modelCount": 50,
+    "categories": [
+      {
+        "name": "现金管理",
+        "modelCount": 19
+      },
+      {
+        "name": "账户管理",
+        "modelCount": 10
+      },
+      {
+        "name": "资金管控",
+        "modelCount": 7
+      },
+      {
+        "name": "其他",
+        "modelCount": 14
+      }
+    ]
+  },
+  {
+    "id": "domain-司库",
+    "name": "司库",
+    "modelCount": 30,
+    "categories": [
+      {
+        "name": "查询模型",
+        "modelCount": 13
+      },
+      {
+        "name": "分析模型",
+        "modelCount": 17
+      }
+    ]
+  },
+  {
+    "id": "domain-投资管理",
+    "name": "投资管理",
+    "modelCount": 58,
+    "categories": [
+      {
+        "name": "投资管理",
+        "modelCount": 10
+      },
+      {
+        "name": "创投基金",
+        "modelCount": 8
+      },
+      {
+        "name": "创投管理",
+        "modelCount": 1
+      },
+      {
+        "name": "多元化投资",
+        "modelCount": 21
+      },
+      {
+        "name": "信息化项目",
+        "modelCount": 4
+      },
+      {
+        "name": "违规提供担保",
+        "modelCount": 2
+      },
+      {
+        "name": "固定资产投资项目",
+        "modelCount": 6
+      },
+      {
+        "name": "股权投资项目",
+        "modelCount": 6
+      }
+    ]
+  },
+  {
+    "id": "domain-经营管理",
+    "name": "经营管理",
+    "modelCount": 43,
+    "categories": [
+      {
+        "name": "未分类",
+        "modelCount": 43
+      }
+    ]
+  },
+  {
+    "id": "domain-薪酬管理",
+    "name": "薪酬管理",
+    "modelCount": 15,
+    "categories": [
+      {
+        "name": "薪酬管理",
+        "modelCount": 15
+      }
+    ]
+  },
+  {
+    "id": "domain-预算管理",
+    "name": "预算管理",
+    "modelCount": 42,
+    "categories": [
+      {
+        "name": "预算执行",
+        "modelCount": 17
+      },
+      {
+        "name": "预算编制与调整",
+        "modelCount": 6
+      },
+      {
+        "name": "预算综合分析",
+        "modelCount": 10
+      },
+      {
+        "name": "报表分析",
+        "modelCount": 8
+      },
+      {
+        "name": "指标分析",
+        "modelCount": 1
+      }
+    ]
+  },
+  {
+    "id": "domain-证券行业",
+    "name": "证券行业",
+    "modelCount": 47,
+    "categories": [
+      {
+        "name": "单个客户信息查询",
+        "modelCount": 5
+      },
+      {
+        "name": "批量客户信息查询",
+        "modelCount": 2
+      },
+      {
+        "name": "从业人员基础信息查询",
+        "modelCount": 5
+      },
+      {
+        "name": "客户类指标",
+        "modelCount": 22
+      },
+      {
+        "name": "从业人员指标信息",
+        "modelCount": 8
+      },
+      {
+        "name": "统计信息查询",
+        "modelCount": 5
+      }
+    ]
+  }
+]

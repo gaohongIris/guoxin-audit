@@ -3,6 +3,7 @@ import AuditPlanView from './views/AuditPlanView.vue'
 import AuditMatterView from './views/AuditMatterView.vue'
 import KnowledgeBaseView from './views/KnowledgeBaseView.vue'
 import ProblemCategoryView from './views/ProblemCategoryView.vue'
+import AnalysisModelView from './views/AnalysisModelView.vue'
 
 const routes = [
   { path: '/', redirect: '/plans' },
@@ -13,6 +14,12 @@ const routes = [
     name: 'problem-categories',
     component: ProblemCategoryView,
     meta: { title: '问题分类' },
+  },
+  {
+    path: '/analysis-models',
+    name: 'analysis-models',
+    component: AnalysisModelView,
+    meta: { title: '数据分析模型' },
   },
   {
     path: '/knowledge',

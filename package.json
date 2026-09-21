@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "parse": "node scripts/parse-excel.mjs && node scripts/parse-problem-categories.mjs"
+    "parse": "node scripts/parse-excel.mjs && node scripts/parse-problem-categories.mjs && node scripts/parse-analysis-models.mjs"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",

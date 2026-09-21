@@ -2,14 +2,14 @@
 
 基于国投 Excel 资料整理的审计方案、审计事项、问题分类与专业知识查看系统。
 
-- **在线访问**：https://gaohongiris.github.io/guoxin-audit/
-- **源码仓库**：https://github.com/gaohongIris/guoxin-audit
+公开仓库：https://github.com/gaohongIris/guoxin-audit
 
 ## 功能
 
 - **审计方案**：分类树（上下级）+ 方案主表全文 + 方案明细子表树 + 明细全文
 - **审计事项**：事项库分类树（上下级）+ 主表列表 + 详情全文
 - **问题分类**：国投问题分类台账
+- **数据分析模型**：业务域 / 分类树 + 模型说明、公式与运算逻辑
 - **专业知识**：准则要点、知识点、审计落地与事项对标
 
 ## 本地启动
